@@ -4,13 +4,25 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-langchain = "*"
-langchain-openai = "*"
+beautifulsoup4 = "*"
 black = "*"
-python-dotenv = "*"
+tiktoken = "*"
+openai = "*"
+unstructured = "*"
+nltk = "*"
+fastapi = "*"
+jinja2 = "*"
+uvicorn = "*"
+streamlit = "*"
+streamlit-chat = "*"
+tqdm = "*"
+isort = "*"
 langchainhub = "*"
+firecrawl-py = "*"
 langchain-community = "*"
-langchain-pinecone = "*"
+langsmith = "*"
+pinecone = "*"
+pillow = "*"
 
 [dev-packages]
 
