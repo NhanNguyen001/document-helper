@@ -5,14 +5,22 @@ from langchain.chains.retrieval import create_retrieval_chain
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_pinecone import PineconeVectorStore
 
+import os
+import certifi
+
+os.environ["SSL_CERT_FILE"] = certifi.where()
+os.environ["LANGCHAIN_TRACING_V2"] = "false"
+
 load_dotenv()
 
 
 def run_llm(query: str):
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+
     docsearch = PineconeVectorStore(
         index_name="langchain-doc-index", embedding=embeddings
     )
+
     chat = ChatOpenAI(verbose=True, temperature=0)
 
     retrieval_qa_chat_prompt = hub.pull("langchain-ai/retrieval-qa-chat")
@@ -22,8 +30,6 @@ def run_llm(query: str):
     qa = create_retrieval_chain(
         retriever=docsearch.as_retriever(),
         combine_docs_chain=stuff_documents_chain,
-        # After we retrieve the relevant documents, we have a lot of options to do and perform optimization and to perform
-        # actions on the relevant documents, summarize .....
     )
 
     result = qa.invoke(input={"input": query})
