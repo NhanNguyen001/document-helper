@@ -4,6 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+langchain-pinecone = "*"
+langchain-openai="*"
 beautifulsoup4 = "*"
 black = "*"
 tiktoken = "*"
