@@ -17,6 +17,7 @@ from typing import List
 from langchain_core.documents import Document
 
 
+
 class UTF8ReadTheDocsLoader(ReadTheDocsLoader):
     """Custom loader that ensures UTF-8 encoding throughout the loading process"""
     
