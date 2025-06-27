@@ -15,7 +15,7 @@ load_dotenv()
 
 
 def run_llm(query: str):
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-large", dimensions=1024)
 
     docsearch = PineconeVectorStore(
         index_name="langchain-doc-index", embedding=embeddings
