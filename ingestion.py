@@ -66,7 +66,7 @@ class UTF8ReadTheDocsLoader(ReadTheDocsLoader):
                 continue
 
 
-embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+embeddings = OpenAIEmbeddings(model="text-embedding-3-large", dimensions=1024)
 
 
 def process_batch(documents: List[Document], batch_size: int = 50) -> None:
